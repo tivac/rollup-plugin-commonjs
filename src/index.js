@@ -101,6 +101,10 @@ export default function commonjs ( options = {} ) {
 		options ( options ) {
 			const resolvers = ( options.plugins || [] )
 				.map( plugin => {
+					if ( !plugin ) {
+						return;
+					}
+
 					if ( plugin.resolveId === resolveId ) {
 						// substitute CommonJS resolution logic
 						return ( importee, importer ) => {

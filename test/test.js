@@ -405,5 +405,12 @@ describe( 'rollup-plugin-commonjs', () => {
 				assert.equal( exports, 'HELLO' );
 			});
 		});
+
+		it( 'supports undefined plugins in the config', () => {
+			return rollup({
+				entry: 'samples/undefined-plugin/main.js',
+				plugins: [ {}, commonjs() ]
+			});
+		});
 	});
 });
